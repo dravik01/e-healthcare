@@ -1,0 +1,63 @@
+{% extends 'app/base_patient.html' %}
+{% block content %}
+  <div class="header-profile">
+   
+  </div>
+ </div>
+ <div class="wrapper">
+  <div class="main-container">
+   <div class="content-wrapper">
+    <div class="content-section">
+     <div class="content-section-title"></div>
+     {% if request.session.filedata %}
+        {% for d in request.session.filedata %}
+        <ul>
+            <li class="adobe-product">
+                <div class="products"> File Number: </div>
+                <span class="status"> {{ d.pk }} </span>
+            </li>
+        </ul>
+        <ul>
+            <li class="adobe-product">
+                <div class="products"> Symptoms: </div>
+                <span class="status"> {{ d.fields.symptoms }} </span>
+            </li>
+        </ul>
+
+        <ul>
+            <li class="adobe-product">
+                <div class="products"> Diagnosis: </div>
+                <span class="status"> {{ d.fields.diagnosis }} </span>
+            </li>
+        </ul>
+        <ul>
+            <li class="adobe-product">
+                <div class="products"> Prescribed medicine: </div>
+                <span class="status"> {{ d.fields.prescribed_medicine }} </span>
+            </li>
+        </ul>
+        <ul>
+            <li class="adobe-product">
+                <div class="products"> Notes: </div>
+                <span class="status"> {{ d.fields.notes }} </span>
+            </li>
+        </ul>
+        {% endfor %}
+
+    {% endif %}
+    {% if request.session.error %}
+        <ul style="margin-top: 4mm;">
+          <li class="adobe-product">
+            <div class="products"> </div>
+              <span class="status">{{ request.session.error }}</span>
+              <div style="float: left; margin-left: 102mm;" class="button-wrapper">
+              </div>
+          </li>
+          </ul>
+    {% endif %}
+    </div>
+   </div>
+  </div>
+ </div>
+ <div class="overlay-app"></div>
+{% endblock content %}

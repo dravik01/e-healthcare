@@ -1,0 +1,126 @@
+{% extends 'app/base_patient.html' %}
+{% block content %}
+  <div class="header-profile">
+   
+  </div>
+ </div>
+ <div class="wrapper">
+  <div class="main-container">
+   <div class="content-wrapper">    
+     {% if request.session.healthinfo %}
+     <div class="content-section">
+        <div class="content-section-title"></div>
+        <ul>
+            <li class="adobe-product">
+                <div class="products"> Height: </div>
+                <span class="status"> {{ request.session.healthinfo.fields.height }} </span>
+            </li>
+        </ul>
+
+        <ul>
+            <li class="adobe-product">
+                <div class="products"> Weight: </div>
+                <span class="status"> {{ request.session.healthinfo.fields.weight }} </span>
+            </li>
+        </ul>
+        <ul>
+            <li class="adobe-product">
+                <div class="products"> Blood Group: </div>
+                <span class="status"> {{ request.session.healthinfo.fields.blood_grp }} </span>
+            </li>
+        </ul>
+        <ul>
+            <li class="adobe-product">
+                <div class="products"> Emergency Number: </div>
+                <span class="status"> {{ request.session.healthinfo.fields.emergency_num }} </span>
+            </li>
+        </ul>
+            
+        <ul>
+            <li class="adobe-product">
+                <div class="products"> Medication: </div>
+                <span class="status"> {{ request.session.healthinfo.fields.medication }} </span>
+            </li>
+        </ul>
+        </div>
+     {% else %}
+        <div class="content-section">
+        <div class="content-section-title"></div>
+        <ul>
+            <form action="{% url 'addhealthdata' %}" id="healthInfo" name="healthInfo" autocomplete="off" method="POST"> 
+            {% csrf_token %}
+            <li class="adobe-product">
+                <div class="products"> <label for="height">Height:</label> </div>
+                    <span class="status" style="float: left; margin-left: 65mm;"> 
+                        <input style="width: max-content;" type="number" class="form-control shadow-none" name="height" id="height" placeholder="Enter Your Height" autofocus> </span>
+                    <div style="float: left; margin-left: 102mm;" class="button-wrapper">
+                    </div>
+            </li>
+        </ul>
+        <ul>
+            <li class="adobe-product">
+                <div class="products"> <label for="weight">weight:</label> </div>
+                    <span class="status" style="float: left; margin-left: 65mm;"> 
+                        <input style="width: max-content;" type="number" class="form-control shadow-none" name="weight" id="weight" placeholder="Enter your weight" autofocus> </span>
+                    <div style="float: left; margin-left: 102mm;" class="button-wrapper">
+                    </div>
+                
+            </li>
+        </ul>
+        <ul>
+            <li class="adobe-product">
+                <div class="products"> <label for="blood_grp">Blood Group:</label> </div>
+                    <span class="status" style="float: left; margin-left: 65mm;"> 
+                        <input style="width: max-content;" type="text" class="form-control shadow-none" name="blood_grp" id="blood_grp" placeholder="Enter Blood Group" autofocus> </span>
+                    <div style="float: left; margin-left: 102mm;" class="button-wrapper">
+                    </div>
+                
+            </li>
+        </ul>
+        <ul>
+            <li class="adobe-product">
+                <div class="products"> <label for="emergency_num">Emergency Number:</label> </div>
+                    <span class="status" style="float: left; margin-left: 65mm;"> 
+                        <input style="width: max-content;" type="number" class="form-control shadow-none" name="emergency_num" id="emergency_num" placeholder="Enter Emergency Number" autofocus> </span>
+                    <div style="float: left; margin-left: 102mm;" class="button-wrapper">
+                    </div>
+                
+            </li>
+        </ul>
+        <ul>
+            <li class="adobe-product">
+                <div class="products"> <label for="medication">Medication:</label> </div>
+                    <span class="status" style="float: left; margin-left: 65mm;"> <input style="width: max-content;" type="text" class="form-control shadow-none" name="medication" id="medication" placeholder="Enter Medicine Name" autofocus> </span>
+                    <div style="float: left; margin-left: 102mm;" class="button-wrapper">
+                    </div>
+            </li>
+        </ul>
+         <ul>
+            <li class="adobe-product">
+                <div class="products"></div>
+                    <span class="status" style="float: left; margin-left: 65mm;"> 
+                        <div style="float: left;" class="button-wrapper">
+                            <button class="content-button status-button open">Add</button>
+                        </div>
+                    </span>
+                </li>
+            </ul>
+        </form>
+         
+     {% endif %}
+     {% if request.session.errorfield %}
+     <ul style="margin-top: 4mm;">
+       <li class="adobe-product">
+         <div class="products"> </div>
+           <span class="status">{{ request.session.errorfield }}</span>
+           <div style="float: left; margin-left: 102mm;" class="button-wrapper">
+           </div>
+       </li>
+       </ul>
+ {% endif %}
+    </div>
+   </div>
+  </div>
+ </div>
+ <div class="overlay-app"></div>
+{% endblock content %}

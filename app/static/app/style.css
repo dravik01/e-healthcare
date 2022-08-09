@@ -1,0 +1,61 @@
+html{
+    scroll-behavior: smooth;
+}
+::-webkit-scrollbar {
+    width: 0;  /* Remove scrollbar space */
+    background: transparent;  /* Optional: just make scrollbar invisible */
+}
+body{
+    
+    font-family: 'Vollkorn', serif;
+    background-color: #DDAF94;
+    color: #66FCF1;
+    user-select: none;
+    /* opacity: 0.95; */
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: flex;
+}
+
+/* Loder classes */
+#loder{
+    overflow: hidden;
+    overflow-x: hidden;
+    
+    color: #66FCF1;
+    height: 100%;
+    width: 100%;
+    position: fixed;
+}
+
+img.logo{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    animation: blink normal 1s infinite ease-in-out;
+}
+@keyframes blink {
+    0% {
+        opacity:1;
+    }
+    50% {
+        opacity:0;
+    }
+    100% {
+        opacity:1;
+    }
+}
+div.logo{
+    position: relative;
+}
+
+
+/* Nav bar */
+/* nav.body{
+    
+} */
+
+
+/* slider box */
