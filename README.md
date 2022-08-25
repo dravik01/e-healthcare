@@ -34,7 +34,7 @@ patient’s medical history in order to treat him/her better.
 To run this project:
 
 ```
-$ git clone https://github.com/sagarbgohil/E-HealthCard.git
+$ git clone https://github.com/dravik01/e-healthcare.git
 $ cd EHealthCard
 $ pip3 install -r requirements.txt
 $ py manage.py runserver
